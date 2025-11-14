@@ -1,38 +1,24 @@
-name: Deploy React App to GitHub Pages
-
-on:
-  push:
-    branches:
-      - main  # workflow akan jalan saat push ke branch main
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      # Step 1: Checkout repo
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # Step 2: Setup Node.js
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-
-      # Step 3: Install dependencies
-      - name: Install dependencies
-        run: npm install
-        working-directory: ./frontend  # pastikan sesuai folder React
-
-      # Step 4: Build project
-      - name: Build React app
-        run: npm run build
-        working-directory: ./frontend
-
-      # Step 5: Deploy to GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./frontend/build
+{
+  "name": "ecommerce-batik",
+  "version": "1.0.0",
+  "private": true,
+  "homepage": "https://alifirdaus-0.github.io/batikan",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.15.0",
+    "react-scripts": "^5.0.1",
+    "lucide-react": "^0.261.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  }
+}
